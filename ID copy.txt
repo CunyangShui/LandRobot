@@ -1,0 +1,38 @@
+http://elinux.org/BeagleBone_Black_Enable_SPIDEV
+https://github.com/sfeakes/Adafruit-sht31-for-PI/blob/master/main.c
+https://groups.google.com/forum/#!topic/beagleboard/aU__9RGq3xU
+
+cape_enable = capemgr.enable_partno=am33xx_pwm
+cape_enable = capemgr.enable_partno=pwm_P9_14
+cape_enable = capemgr.enable_partno=pwm_P9_31
+cape_enable = capemgr.enable_partno=pwm_P8_45
+cape_enable = capemgr.enable_partno=pwm_P8_46
+
+
+#!/bin/sh
+
+echo am33xx_pwm > /sys/devices/bone_capemgr.9/slots
+echo pwm_P8_45 > /sys/devices/bone_capemgr.9/slots
+echo pwm_P8_46 > /sys/devices/bone_capemgr.9/slots
+echo pwm_P9_14 > /sys/devices/bone_capemgr.9/slots
+echo pwm_P9_31 > /sys/devices/bone_capemgr.9/slots
+
+echo 3333333 > /sys/devices/ocp.3/pwm_test_P9_14*/period
+echo 3333333 > /sys/devices/ocp.3/pwm_test_P9_31*/period
+echo 3333333 > /sys/devices/ocp.3/pwm_test_P8_45*/period
+echo 3333333 > /sys/devices/ocp.3/pwm_test_P8_46*/period
+
+echo 1666666 > /sys/devices/ocp.3/pwm_test_P9_14*/duty
+echo 1666666 > /sys/devices/ocp.3/pwm_test_P9_31*/duty
+echo 1666666 > /sys/devices/ocp.3/pwm_test_P8_45*/duty
+echo 1666666 > /sys/devices/ocp.3/pwm_test_P8_46*/duty
+
+echo 1 > /sys/devices/ocp.3/pwm_test_P9_14*/run
+echo 1 > /sys/devices/ocp.3/pwm_test_P9_31*/run
+echo 1 > /sys/devices/ocp.3/pwm_test_P8_45*/run
+echo 1 > /sys/devices/ocp.3/pwm_test_P8_46*/run
+
+
+http://silviuardelean.ro/2012/06/05/few-singleton-approaches/
+http://blog.csdn.net/haoel/article/details/4028232
+http://www.cnblogs.com/loveis715/archive/2012/07/18/2598409.html
